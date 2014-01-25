@@ -7,6 +7,7 @@ public abstract class Trigger : MonoBehaviour
 		public Action[] actions = new Action[0];
 		public bool singleUse;
 		public bool used;
+		public bool debugLogs = false;
 
 		[ContextMenu("Trigger")]
 		public void TriggerAction ()
@@ -17,6 +18,7 @@ public abstract class Trigger : MonoBehaviour
 						for (int i = 0; i < actions.Length; ++i) {
 								Action a = actions [i];
 								if (a != null) {
+										Debug.Log (string.Format ("Trigger {0} signalling Action {1}.", this.name, a.name), this);
 										a.TriggerAction ();
 								}
 						}
