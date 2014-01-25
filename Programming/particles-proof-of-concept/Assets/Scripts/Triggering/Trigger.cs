@@ -1,30 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Trigger : MonoBehaviour
+// This trigger forms the foundation for all others.
+public abstract class Trigger : MonoBehaviour
 {
 		public Action[] actions = new Action[0];
-
-		void Reset ()
-		{
-				if (collider != null)
-						collider.isTrigger = true;
-		}
-
-		void OnTriggerEnter (Collider collider)
-		{
-				TriggerAction ();
-		}
+		public bool singleUse;
+		public bool used;
 
 		[ContextMenu("Trigger")]
-		void TriggerAction ()
+		public void TriggerAction ()
 		{
-				for (int i = 0; i < actions.Length; ++i) {
-						Action a = actions [i];
-						if (a != null) {
-								a.TriggerAction ();
+				if (!used || !singleUse) {
+						used = true;
+
+						for (int i = 0; i < actions.Length; ++i) {
+								Action a = actions [i];
+								if (a != null) {
+										a.TriggerAction ();
+								}
 						}
 				}
+
 		}
 
 		void OnDrawGizmos ()
