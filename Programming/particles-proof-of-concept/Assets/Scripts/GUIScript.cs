@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GUIScript : MonoBehaviour {
 	public bool boolGUI = false;
+	public bool howtoBool = false;
+	public Texture2D howTo;
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.F5))
@@ -22,10 +24,18 @@ public class GUIScript : MonoBehaviour {
 			{
 				boolGUI = false;
 			}
-			if(GUI.Button(new Rect(0,100,100,100), "Start"))
+			if(GUI.Button(new Rect(0,100,100,100), "Quit"))
 			{
-				Application.LoadLevel(0);
+				Application.Quit();
 			}
+			if(GUI.Button(new Rect(0,200,100,100), "How To"))
+			{
+				howtoBool = true;
+			}
+		}
+		if(howtoBool)
+		{
+			GUI.Label(new Rect(300,300,400,400), howTo);
 		}
 	}
 }
