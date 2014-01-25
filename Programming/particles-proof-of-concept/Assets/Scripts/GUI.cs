@@ -7,8 +7,11 @@ public class GUI : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.F4))
 		{
-			Debug.Log(0);
 			Application.LoadLevel(0);
+		}
+		if(Input.GetKeyDown(KeyCode.Delete))
+		{
+			Application.Quit();
 		}
 	}
 }
