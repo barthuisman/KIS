@@ -26,18 +26,19 @@ public class FootPrint : MonoBehaviour
 				
 				if(temp.sqrMagnitude > minDistance*minDistance){
 								rightFoot = false;
-								Instantiate (footPrintRight, transform.position, new Quaternion (0, transform.parent.rotation.y + 90, 0, 0));
+								Instantiate (footPrintRight, transform.position, new Quaternion (0, (transform.parent.rotation.y + 90), 0, 0));
 								oldPosition = transform.parent.position;
+								//Debug.Log(transform.parent.rotation.y);
 						}
 						break;
 				case false:
 			temp = oldPosition - transform.parent.position;
 			if(temp.sqrMagnitude > minDistance*minDistance) {
 								rightFoot = true;
-								Instantiate (footPrintLeft, transform.position, new Quaternion (0, transform.parent.rotation.y + 90, 0, 0));
+								Instantiate (footPrintLeft, transform.position, new Quaternion (0, (transform.parent.rotation.y + 90), 0, 0));
 								oldPosition = transform.parent.position;
+				//Debug.Log(transform.parent.rotation.y);
 						}
-								//StartCoroutine (WaitSeconds ());
 						break;
 				}
 				StartCoroutine (WaitSeconds ());
