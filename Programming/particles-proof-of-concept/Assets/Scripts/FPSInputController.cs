@@ -46,7 +46,11 @@ public class FPSInputController : MonoBehaviour
 				motor.inputJump = Input.GetButton("Jump");
 				//motor.inputCrouch = Input.GetButton("Crouch");
 		}
-
+		
+		void OnDrawGizmos() {
+		Gizmos.color = Color.red;
+		Gizmos.DrawRay(transform.position, Camera.main.gameObject.transform.TransformDirection(Vector3.forward*2));
+	}
 		void Crouch ()
 		{
 				if (Input.GetKeyDown (KeyCode.LeftControl)) {
