@@ -13,7 +13,18 @@ public class Trigger : MonoBehaviour
 
 		void OnTriggerEnter (Collider collider)
 		{
-				// trigger action
+				TriggerAction ();
+		}
+
+		[ContextMenu("Trigger")]
+		void TriggerAction ()
+		{
+				for (int i = 0; i < actions.Length; ++i) {
+						Action a = actions [i];
+						if (a != null) {
+								a.TriggerAction ();
+						}
+				}
 		}
 
 		void OnDrawGizmos ()

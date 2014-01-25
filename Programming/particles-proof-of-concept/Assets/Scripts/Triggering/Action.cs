@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Action : MonoBehaviour
+public abstract class Action : MonoBehaviour
 {
-	public virtual void TriggerAction()
-	{
-	}
+	public abstract void TriggerAction();
 
-	void OnDrawGizmos()
+	protected virtual void OnDrawGizmos()
 	{
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawWireSphere(transform.position, 0.1f);
