@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Collections;
 
 // Lights the surroundings with raycasts and particles
+[ExecuteInEditMode()]
 public class RayCastLight : MonoBehaviour
 {
 		public float minDistance = 1f;
